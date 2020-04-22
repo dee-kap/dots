@@ -37,7 +37,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/denite.nvim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-
+Plug 'yuki-ycino/fzf-preview.vim'
 " Snippet support
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
