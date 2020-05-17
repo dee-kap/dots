@@ -559,7 +559,7 @@ endif
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 " blamer
-let g:blamer_enabled = 1
+"let g:blamer_enabled = 1
 
 " Scala
 " Configuration for vim-scala

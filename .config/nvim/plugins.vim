@@ -109,5 +109,8 @@ Plug 'fatih/vim-go'
 " Elixir
 Plug 'elixir-editors/vim-elixir'
 
+"colored man pages"
+Plug 'jez/vim-superman'
+
 " Initialize plugin system
 call plug#end()
