@@ -56,9 +56,12 @@ This function should only modify configuration layer settings."
                  typescript-fmt-tool-on-save t)
      prettier
      lsp
-     ;; markdown
+     markdown
      multiple-cursors
      org
+     (python :variables python-backend 'lsp
+             python-lsp-server 'mspyls
+             python-pipenv-activate t)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -67,6 +70,7 @@ This function should only modify configuration layer settings."
      ;; version-control
      ;; treemacs
      ;; themes-megapack
+     django
      colors
      )
 
@@ -78,6 +82,7 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(
+                                      all-the-icons
                                       exec-path-from-shell
                                       monokai-theme
                                       doom-themes)
@@ -213,10 +218,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-themes '(
                          doom-snazzy
                          monokai
-                         doom-dracula
                          doom-oceanic-next
-                         doom-gruvbox
-                         spacemacs-dark
                          doom-one
                          sanityinc-tomorrow-eighties
                          spacemacs-light)
@@ -230,7 +232,8 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   ;; dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(all-the-icons :separator arrow :separator-scale 1.5)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -241,7 +244,7 @@ It should only modify the values of Spacemacs settings."
                                :size 12.0
                                :weight normal
                                :width normal
-                               :powerline-scale 1.0)
+                               :powerline-scale 0.9)
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
 
@@ -508,10 +511,11 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (setq create-lockfiles nil)
   (exec-path-from-shell-initialize)
   (setq powerline-default-separator 'nil)
   (setq default-text-properties '(line-spacing 0.25 line-height 1.25))
-  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
   (add-hook 'js2-mode-hook 'prettier-js-mode)
   (add-hook 'web-mode-hook 'prettier-js-mode)
   (add-hook 'typescript-mode-hook 'prettier-js-mode)
@@ -545,7 +549,7 @@ This function is called at the very end of Spacemacs initialization."
  '(compilation-message-face 'default)
  '(custom-enabled-themes '(doom-snazzy))
  '(custom-safe-themes
-   '("51956e440cec75ba7e4cff6c79f4f8c884a50b220e78e5e05145386f5b381f7b" "bc836bf29eab22d7e5b4c142d201bcce351806b7c1f94955ccafab8ce5b20208" "361f5a2bc2a7d7387b442b2570b0ef35198442b38c2812bf3c70e1e091771d1a" "f9aede508e587fe21bcfc0a85e1ec7d27312d9587e686a6f5afdbb0d220eab50" "6145e62774a589c074a31a05dfa5efdf8789cf869104e905956f0cbd7eda9d0e" "b8929cff63ffc759e436b0f0575d15a8ad7658932f4b2c99415f3dde09b32e97" "7c4cfa4eb784539d6e09ecc118428cd8125d6aa3053d8e8413f31a7293d43169" "7f791f743870983b9bb90c8285e1e0ba1bf1ea6e9c9a02c60335899ba20f3c94" "51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "aded61687237d1dff6325edb492bde536f40b048eab7246c61d5c6643c696b7f" "a77ced882e25028e994d168a612c763a4feb8c4ab67c5ff48688654d0264370c" "782fecee6502e77e987db616624d84eeb84082f64fdadb11345bee9c4197fc01" "4138944fbed88c047c9973f68908b36b4153646a045648a22083bd622d1e636d" "cd7ffd461946d2a644af8013d529870ea0761dccec33ac5c51a7aaeadec861c2" "76c5b2592c62f6b48923c00f97f74bcb7ddb741618283bdb2be35f3c0e1030e3" "1ed5c8b7478d505a358f578c00b58b430dde379b856fbcb60ed8d345fc95594e" "a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "845103fcb9b091b0958171653a4413ccfad35552bc39697d448941bcbe5a660d" "1526aeed166165811eefd9a6f9176061ec3d121ba39500af2048073bea80911e" "a83f05e5e2f2538376ea2bfdf9e3cd8b7f7593b16299238c1134c1529503fa88" "e1ecb0536abec692b5a5e845067d75273fe36f24d01210bf0aa5842f2a7e029f" default))
+   '("f2b56244ecc6f4b952b2bcb1d7e517f1f4272876a8c873b378f5cf68e904bd59" "51956e440cec75ba7e4cff6c79f4f8c884a50b220e78e5e05145386f5b381f7b" "bc836bf29eab22d7e5b4c142d201bcce351806b7c1f94955ccafab8ce5b20208" "361f5a2bc2a7d7387b442b2570b0ef35198442b38c2812bf3c70e1e091771d1a" "f9aede508e587fe21bcfc0a85e1ec7d27312d9587e686a6f5afdbb0d220eab50" "6145e62774a589c074a31a05dfa5efdf8789cf869104e905956f0cbd7eda9d0e" "b8929cff63ffc759e436b0f0575d15a8ad7658932f4b2c99415f3dde09b32e97" "7c4cfa4eb784539d6e09ecc118428cd8125d6aa3053d8e8413f31a7293d43169" "7f791f743870983b9bb90c8285e1e0ba1bf1ea6e9c9a02c60335899ba20f3c94" "51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "aded61687237d1dff6325edb492bde536f40b048eab7246c61d5c6643c696b7f" "a77ced882e25028e994d168a612c763a4feb8c4ab67c5ff48688654d0264370c" "782fecee6502e77e987db616624d84eeb84082f64fdadb11345bee9c4197fc01" "4138944fbed88c047c9973f68908b36b4153646a045648a22083bd622d1e636d" "cd7ffd461946d2a644af8013d529870ea0761dccec33ac5c51a7aaeadec861c2" "76c5b2592c62f6b48923c00f97f74bcb7ddb741618283bdb2be35f3c0e1030e3" "1ed5c8b7478d505a358f578c00b58b430dde379b856fbcb60ed8d345fc95594e" "a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "845103fcb9b091b0958171653a4413ccfad35552bc39697d448941bcbe5a660d" "1526aeed166165811eefd9a6f9176061ec3d121ba39500af2048073bea80911e" "a83f05e5e2f2538376ea2bfdf9e3cd8b7f7593b16299238c1134c1529503fa88" "e1ecb0536abec692b5a5e845067d75273fe36f24d01210bf0aa5842f2a7e029f" default))
  '(evil-want-Y-yank-to-eol nil)
  '(helm-completion-style 'emacs)
  '(highlight-changes-colors '("#FD5FF0" "#AE81FF"))
@@ -558,6 +562,22 @@ This function is called at the very end of Spacemacs initialization."
      ("#A75B00" . 70)
      ("#F309DF" . 85)
      ("#3C3D37" . 100)))
+ '(hl-todo-keyword-faces
+   '(("TODO" . "#dc752f")
+     ("NEXT" . "#dc752f")
+     ("THEM" . "#2d9574")
+     ("PROG" . "#4f97d7")
+     ("OKAY" . "#4f97d7")
+     ("DONT" . "#f2241f")
+     ("FAIL" . "#f2241f")
+     ("DONE" . "#86dc2f")
+     ("NOTE" . "#b1951d")
+     ("KLUDGE" . "#b1951d")
+     ("HACK" . "#b1951d")
+     ("TEMP" . "#b1951d")
+     ("FIXME" . "#dc752f")
+     ("XXX+" . "#dc752f")
+     ("\\?\\?\\?+" . "#dc752f")))
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    '(tern zenburn-theme zen-and-art-theme yaml-mode xterm-color ws-butler winum white-sand-theme which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme toc-org tide typescript-mode tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spaceline powerline spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slim-mode shell-pop seti-theme scss-mode sass-mode reverse-theme restart-emacs rebecca-theme rainbow-delimiters railscasts-theme purple-haze-theme pug-mode professional-theme popwin planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pcre2el paradox spinner orgit organic-green-theme org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download org-bullets open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme ob-elixir noctilux-theme neotree naquadah-theme mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme material-theme markdown-toc markdown-mode majapahit-theme magit-gitflow magit-popup madhat2r-theme macrostep lush-theme lorem-ipsum linum-relative link-hint light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme indent-guide hydra lv hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation heroku-theme hemisu-theme helm-themes helm-swoop helm-projectile projectile helm-mode-manager helm-make helm-gitignore request helm-flx helm-descbinds helm-css-scss helm-ag hc-zenburn-theme haml-mode gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md gandalf-theme flycheck-pos-tip pos-tip flycheck-mix flycheck-credo flycheck flx-ido flx flatui-theme flatland-theme fill-column-indicator farmhouse-theme fancy-battery eyebrowse expand-region exotica-theme exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit git-commit with-editor transient evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu espresso-theme eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump f dracula-theme doom-themes django-theme diminish define-word darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme clean-aindent-mode cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme bind-map bind-key badwolf-theme auto-highlight-symbol auto-compile packed apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes alchemist s company dash elixir-mode pkg-info epl aggressive-indent afternoon-theme adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async doom-oceanic-next-theme))
