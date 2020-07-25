@@ -56,9 +56,12 @@ This function should only modify configuration layer settings."
                  typescript-fmt-tool-on-save t)
      prettier
      lsp
-     ;; markdown
+     markdown
      multiple-cursors
      org
+     (python :variables python-backend 'lsp
+             python-lsp-server 'mspyls
+             python-pipenv-activate t)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -67,6 +70,7 @@ This function should only modify configuration layer settings."
      ;; version-control
      ;; treemacs
      ;; themes-megapack
+     django
      colors
      )
 
@@ -78,6 +82,7 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(
+                                      all-the-icons
                                       exec-path-from-shell
                                       monokai-theme
                                       doom-themes)
@@ -213,10 +218,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-themes '(
                          doom-snazzy
                          monokai
-                         doom-dracula
                          doom-oceanic-next
-                         doom-gruvbox
-                         spacemacs-dark
                          doom-one
                          sanityinc-tomorrow-eighties
                          spacemacs-light)
@@ -230,7 +232,8 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   ;; dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(all-the-icons :separator arrow :separator-scale 1.5)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -508,10 +511,11 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (setq create-lockfiles nil)
   (exec-path-from-shell-initialize)
   (setq powerline-default-separator 'nil)
   (setq default-text-properties '(line-spacing 0.25 line-height 1.25))
-  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
   (add-hook 'js2-mode-hook 'prettier-js-mode)
   (add-hook 'web-mode-hook 'prettier-js-mode)
   (add-hook 'typescript-mode-hook 'prettier-js-mode)
