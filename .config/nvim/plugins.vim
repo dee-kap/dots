@@ -35,7 +35,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Denite - Fuzzy finding, buffer management
 Plug 'Shougo/denite.nvim'
-Plug '/usr/local/opt/fzf'
+Plug '/usr/bin/fzf'
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim'
 " Snippet support
@@ -81,6 +82,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'mhartington/oceanic-next'
 Plug 'joshdick/onedark.vim'
 Plug 'liuchengxu/space-vim-dark'
+Plug 'sainnhe/sonokai'
 
 
 " Customized vim status line

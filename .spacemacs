@@ -61,7 +61,10 @@ This function should only modify configuration layer settings."
      org
      (python :variables python-backend 'lsp
              python-lsp-server 'mspyls
-             python-pipenv-activate t)
+             python-pipenv-activate t
+             python-formatter 'yapf
+             lsp-enable-snippet t
+             python-format-on-save t)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -72,6 +75,7 @@ This function should only modify configuration layer settings."
      ;; themes-megapack
      django
      colors
+     imenu-list
      )
 
    ;; List of additional packages that will be installed without being
@@ -233,7 +237,7 @@ It should only modify the values of Spacemacs settings."
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
    ;; dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
-   dotspacemacs-mode-line-theme '(all-the-icons :separator arrow :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(all-the-icons :separator arrow :separator-scale 1)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -244,7 +248,7 @@ It should only modify the values of Spacemacs settings."
                                :size 12.0
                                :weight normal
                                :width normal
-                               :powerline-scale 0.9)
+                               :powerline-scale 1)
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
 
@@ -526,7 +530,7 @@ before packages are loaded."
   ;; (setq lsp-eldoc-render-all t)
   ;; (setq company-idle-delay 0.1)
   (setq company-dabbrev-downcase 0)
-  (setq company-idle-delay 0)
+  (setq company-idle-delay 0.1)
   (spaceline-define-segment buffer-id
     (if (buffer-file-name)
         (abbreviate-file-name (buffer-file-name))

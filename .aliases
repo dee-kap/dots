@@ -1,0 +1,6 @@
+alias ll='ls -lA'
+alias l='ls -CF'
+alias e='exit'
+alias vim='nvim'
+alias v='nvim'
+alias g='git'

@@ -318,7 +318,8 @@ set termguicolors
 
 " Vim airline theme
 "let g:airline_theme='angr'
-let g:airline_theme='deus'
+"let g:airline_theme='deus'
+let g:airline_theme='sonokai'
 
 " Change vertical split character to be a space (essentially hide it)
 " set fillchars+=vert:.
@@ -380,7 +381,7 @@ endfunction
 
 autocmd! ColorScheme * call TrailingSpaceHighlights()
 "autocmd! ColorScheme space-vim-dark call s:custom_jarvis_colors()
-autocmd! ColorScheme onedark call s:custom_jarvis_colors()
+autocmd! ColorScheme sonokai call s:custom_jarvis_colors()
 
 " Call method on window enter
 augroup WindowManagement
@@ -397,13 +398,19 @@ endfunction
 
 " Editor theme
 set background=dark
+
+let g:sonokai_style = 'atlantis'
+let g:sonokai_enable_italic = 1
+
 try
   "colorscheme OceanicNext
-  colorscheme onedark
+  "colorscheme onedark
+  colorscheme sonokai
   "colorscheme space-vim-dark
 catch
   colorscheme slate
 endtry
+
 " ============================================================================ "
 " ===                             KEY MAPPINGS                             === "
 " ============================================================================ "
