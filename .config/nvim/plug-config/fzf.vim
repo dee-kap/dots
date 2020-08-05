@@ -12,6 +12,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_buffers_jump = 1
 
 map <C-f> :Files<CR>
+map <leader>f :Files<CR>
 map <leader>bb :Buffers<CR>
 nnoremap <leader>g :Rg<CR>
 " nnoremap <leader>t :Tags<CR>
