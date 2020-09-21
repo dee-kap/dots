@@ -17,14 +17,19 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'liuchengxu/vista.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'preservim/nerdcommenter'
 
 Plug 'tpope/vim-fugitive'
+Plug 'APZelos/blamer.nvim'
+Plug 'airblade/vim-gitgutter'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'norcalli/nvim-colorizer.lua'
 
 "Plug 'pangloss/vim-javascript'
 "Plug 'leafgarland/typescript-vim'
@@ -132,6 +137,7 @@ if (has('nvim'))
 endif
 
 let g:material_theme_style = 'palenight'
+"let g:material_theme_style = 'ocean'
 let g:material_terminal_italics = 1
 
 colorscheme material
@@ -142,12 +148,14 @@ endif
 
 " FZF
 "nnoremap <leader>p :GFiles<CR>
-nnoremap <leader>pf :Files<CR>
-nnoremap <leader>ff :GFiles<CR>
-
+nnoremap <leader>pf :GFiles<CR>
+nnoremap <leader>ff :Files<CR>
 
 " coc
 " GoTo code navigation.
+" prettier command
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -184,6 +192,16 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
 " nerdtree
 let g:NERDTreeShowHidden=1
 nmap <leader>nt :NERDTreeToggle<CR>
@@ -206,3 +224,9 @@ let g:airline_right_sep = ''
 let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
 
 set showtabline=2
+
+
+" blamer
+let g:blamer_enabled = 1
+let g:blamer_delay = 500
+let g:blamer_date_format = '%Y/%m/%d'
