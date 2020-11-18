@@ -19,8 +19,10 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
-;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
+(setq doom-font (font-spec :family "Source Code Pro" :size 15 :weight 'semi-light)
+       doom-variable-pitch-font (font-spec :family "Ubuntu Mono" :size 14))
+
+(setq-default line-spacing 4)
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -55,9 +57,11 @@
 ;;
 ;;
 ;;(add-hook 'before-save-hook #'+format|buffer)
+(setq tide-tsserver-executable "~/.nvm/versions/node/v12.15.0/bin/tsserver" )
 (add-hook 'rjsx-mode-hook 'prettier-js-mode)
 (add-hook 'js2-mode-hook 'prettier-js-mode)
 (add-hook 'web-mode-hook 'prettier-js-mode)
+(add-hook 'typescript-mode-hook 'prettier-js-mode)
 (setq web-mode-hook 'prettier-js-mode)
 (setq +format-on-save-enabled-modes '(not emacs-lisp-mode ; works well enough without it
                                           sql-mode        ; sqlformat is broken
