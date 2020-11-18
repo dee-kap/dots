@@ -21,7 +21,9 @@ bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:URWGothic-Book 11
+#font xft:URWGothic-Book 11
+#font pango:Ubuntu Mono derivative Powerline 11
+#font pango:Terminus 11
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -324,7 +326,11 @@ set_from_resource $term_color15    color15
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
         i3bar_command i3bar
-        status_command i3status
+        #font xft:Ubuntu Mono derivative Powerline 11
+        #font pango:Roboto Mono for Powerline, FontAwesome 11
+        font pango:DejaVu Sans Mono, FontAwesome 10
+        #font xft:Droid Sans Mono for Powerline 5       #status_command i3status
+        status_command $HOME/.cargo/bin/i3status-rs $HOME/.config/i3status-rust/config.toml
         #position bottom
         position top
 
@@ -340,8 +346,10 @@ bar {
 	strip_workspace_numbers no
 
     colors {
-        background #222D31
-        statusline #F9FAF9
+        background #292d3e
+        #background #222D31
+        #statusline #F9FAF9
+        statusline #d0d0d0
         separator  #454947
 
 #                      border  backgr. text

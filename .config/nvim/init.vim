@@ -1,5 +1,7 @@
 scriptencoding utf-8
 
+set nocompatible
+
 " auto-install vim-plug
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
@@ -9,6 +11,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
+Plug 'voldikss/vim-floaterm'
 
 Plug 'christianchiarulli/onedark.vim'
 Plug 'kaicataldo/material.vim'
@@ -146,6 +149,7 @@ if (has("termguicolors"))
     hi LineNr ctermbg=NONE guibg=NONE
 endif
 
+
 " FZF
 "nnoremap <leader>p :GFiles<CR>
 nnoremap <leader>pf :GFiles<CR>
@@ -227,6 +231,12 @@ set showtabline=2
 
 
 " blamer
-let g:blamer_enabled = 1
+let g:blamer_enabled = 0
 let g:blamer_delay = 500
 let g:blamer_date_format = '%Y/%m/%d'
+
+
+" Floaterm
+
+nnoremap <leader>gs :FloatermNew lazygit<CR>
+nnoremap <leader>t :FloatermNew<CR>
