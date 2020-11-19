@@ -64,7 +64,8 @@
 ;;
 ;;
 ;;(add-hook 'before-save-hook #'+format|buffer)
-(setq tide-tsserver-executable "~/.nvm/versions/node/v12.15.0/bin/tsserver" )
+;;(setq tide-tsserver-executable "~/.nvm/versions/node/v12.15.0/bin/tsserver" )
+(setq tide-tsserver-executable  "~/.npm-packages/lib/node_modules/typescript/bin/tsserver" )
 (add-hook 'rjsx-mode-hook 'prettier-js-mode)
 (add-hook 'js2-mode-hook 'prettier-js-mode)
 (add-hook 'web-mode-hook 'prettier-js-mode)
