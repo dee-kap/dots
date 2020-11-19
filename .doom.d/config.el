@@ -19,8 +19,12 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Source Code Pro" :size 15 :weight 'semi-light)
-       doom-variable-pitch-font (font-spec :family "Ubuntu Mono" :size 14))
+(setq doom-font (font-spec :family "Source Code Pro" :size 15 :weight 'semi-bold)
+      doom-variable-pitch-font (font-spec :family "Ubuntu" :size 15)
+      doom-big-font (font-spec :family "Source Code Pro" :size: 24))
+(after! doom-themes
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t))
 
 (setq-default line-spacing 4)
 
@@ -57,7 +61,7 @@
 ;;
 ;;
 ;;(add-hook 'before-save-hook #'+format|buffer)
-(setq tide-tsserver-executable "~/.nvm/versions/node/v12.15.0/bin/tsserver" )
+(setq tide-tsserver-executable  "~/.npm-packages/lib/node_modules/typescript/bin/tsserver" )
 (add-hook 'rjsx-mode-hook 'prettier-js-mode)
 (add-hook 'js2-mode-hook 'prettier-js-mode)
 (add-hook 'web-mode-hook 'prettier-js-mode)
@@ -73,3 +77,10 @@
                                           rjsx-mode
                                           python-mode
                                           ))
+
+(setq company-dabbrev-downcase 0)
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 1)
+(setq company-selection-wrap-around t)
+
+(setq treemacs-git-mode 'extended)
