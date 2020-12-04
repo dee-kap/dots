@@ -15,6 +15,7 @@ Plug 'voldikss/vim-floaterm'
 
 Plug 'christianchiarulli/onedark.vim'
 Plug 'kaicataldo/material.vim'
+Plug 'arcticicestudio/nord-vim'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -144,9 +145,13 @@ let g:material_theme_style = 'palenight'
 let g:material_terminal_italics = 1
 
 colorscheme material
+"colorscheme nord
 if (has("termguicolors"))
+    set t_8f=\[[38;2;%lu;%lu;%lum
+    set t_8b=\[[48;2;%lu;%lu;%lum
     set termguicolors
-    hi LineNr ctermbg=NONE guibg=NONE
+    hi! LineNr ctermbg=NONE guibg=NONE
+    hi! Normal ctermbg=NONE guibg=NONE
 endif
 
 
