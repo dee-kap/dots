@@ -63,14 +63,15 @@ antialias: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Source Code Pro # should be "Menlo" or something on macOS.
+    family: Fira Code # should be "Menlo" or something on macOS.
+    #family: Source Code Pro # should be "Menlo" or something on macOS.
     # family: Iosevka # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     style: Medium
 
   # The bold font face
   bold:
-    family: Source Code Pro # should be "Menlo" or something on macOS.
+    family: Fira Code # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     style: Bold
 
