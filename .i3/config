@@ -144,10 +144,10 @@ bindsym $mod+Ctrl+Left workspace prev
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 "1:Code"
+set $ws1 "1:Battle Station"
 set $ws2 "2:Terminals"
-set $ws3 "3:CommsBrowse"
-set $ws4 "4:Notes"
+set $ws3 "3:Comms"
+set $ws4 "4:Engineering"
 set $ws5 5
 set $ws6 6
 set $ws7 7
