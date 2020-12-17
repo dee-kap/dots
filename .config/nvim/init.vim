@@ -11,7 +11,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
-"Plug 'voldikss/vim-floaterm'
+Plug 'voldikss/vim-floaterm'
 
 Plug 'kaicataldo/material.vim'
 Plug 'arcticicestudio/nord-vim'
