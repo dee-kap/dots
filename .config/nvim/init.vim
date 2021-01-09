@@ -13,15 +13,13 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'voldikss/vim-floaterm'
 
-Plug 'christianchiarulli/onedark.vim'
-Plug 'kaicataldo/material.vim'
-Plug 'arcticicestudio/nord-vim'
+Plug 'kaicataldo/material.vim', {'branch': 'main'}
+Plug 'cormacrelf/vim-colors-github'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'liuchengxu/vista.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -33,14 +31,12 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'norcalli/nvim-colorizer.lua'
 
 "Plug 'pangloss/vim-javascript'
 "Plug 'leafgarland/typescript-vim'
 "Plug 'peitalin/vim-jsx-typescript'
 
 Plug 'sheerun/vim-polyglot'
-
 
 call plug#end()
 
@@ -55,6 +51,7 @@ autocmd VimEnter *
 
 " Remap leader key to ,
 ""let g:mapleader=<space>
+nnoremap <SPACE> <Nop>
 let mapleader=" "
 
 " change escape
@@ -67,7 +64,7 @@ imap jk <Esc>
 set nu
 
 " Don't show last command
-set noshowcmd
+"set noshowcmd
 
 " Yank and paste with the system clipboard
 set clipboard=unnamed
@@ -96,7 +93,7 @@ set nowrap
 set noruler
 
 " Only one line for command line
-set cmdheight=1
+"set cmdheight=1
 
 " === Search === "
 " ignore case when searching
@@ -119,6 +116,14 @@ nnoremap <leader>w <C-w>
 
 " save buffer
 nnoremap <leader>fs :w<cr>
+
+" use clipboard as default register. This will allow yanking and pasting into
+" another application
+if system('uname -s') == "Darwin\n"
+  set clipboard=unnamed "OSX
+else
+  set clipboard=unnamedplus "Linux
+endif
 
 " Jump to last cursor position unless it's invalid or in an event handler
 autocmd BufReadPost *
@@ -145,7 +150,6 @@ let g:material_theme_style = 'palenight'
 let g:material_terminal_italics = 1
 
 colorscheme material
-"colorscheme nord
 if (has("termguicolors"))
     set t_8f=\[[38;2;%lu;%lu;%lum
     set t_8b=\[[48;2;%lu;%lu;%lum
@@ -156,7 +160,8 @@ endif
 
 
 " FZF
-"nnoremap <leader>p :GFiles<CR>
+"nnoremap <leader><SPACE> :GFiles<CR>
+nnoremap <leader><SPACE> :GFiles<CR>
 nnoremap <leader>pf :GFiles<CR>
 nnoremap <leader>ff :Files<CR>
 
@@ -210,6 +215,13 @@ function! s:show_documentation()
 endfunction
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" This is required to fix Error on autocmd TextYankPost error in coc
+augroup ReactFiletypes
+  autocmd!
+  autocmd BufRead,BufNewFile *.jsx set filetype=javascriptreact
+  autocmd BufRead,BufNewFile *.tsx set filetype=typescriptreact
+augroup END
 
 " nerdtree
 let g:NERDTreeShowHidden=1

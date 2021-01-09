@@ -1,0 +1,15 @@
+[user]
+	email = kapoordeepak@gmail.com
+	name = Deepak Kapoor
+
+[pretty]
+	better-oneline = "format:%C(auto)%h%d %s %Cblue[%cn]"
+
+[alias]
+  s = status
+  c = commit
+  tree    = log --pretty=better-oneline --all --graph
+	ls      = log --pretty=better-oneline
+	ll      = log --pretty=better-oneline --numstat
+  branches = branch -a
+  unstage = reset HEAD
