@@ -1,6 +1,23 @@
-alias ll='ls -lA'
-alias l='ls -CF'
-alias e='exit'
+# These are my system wide aliases"
+
+# start with ls
+# park the original ls to lso
+# this is the convention I follow. o indicates old
+alias lso='ls'
+alias ls='exa'
+alias ll='ls -la --icons'
+alias l='ls -l --icons'
+
+# vim. I use newovim
 alias vim='nvim'
 alias v='nvim'
+
+# cat is a bat
+alias cato='cat'
+alias cat='bat'
+
+# let git be g
 alias g='git'
+
+# finally I exit with e
+alias e='exit'
