@@ -19,5 +19,8 @@ alias cat='bat'
 # let git be g
 alias g='git'
 
+# ripgrep is better than grep
+grep='rg'
+
 # finally I exit with e
 alias e='exit'
