@@ -24,6 +24,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'preservim/nerdcommenter'
+Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 
 Plug 'tpope/vim-fugitive'
 Plug 'APZelos/blamer.nvim'
@@ -45,6 +46,7 @@ autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
   \| endif
+
 " ============================================================================ "
 " ===                           EDITING OPTIONS                            === "
 " ============================================================================ "
