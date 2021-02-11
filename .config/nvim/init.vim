@@ -24,9 +24,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'preservim/nerdcommenter'
+Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 
 Plug 'tpope/vim-fugitive'
-Plug 'APZelos/blamer.nvim'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'vim-airline/vim-airline'
@@ -37,6 +37,8 @@ Plug 'vim-airline/vim-airline-themes'
 "Plug 'peitalin/vim-jsx-typescript'
 
 Plug 'sheerun/vim-polyglot'
+"Plug 'SirVer/ultisnips'
+"Plug 'mlaursen/vim-react-snippets'
 
 call plug#end()
 
@@ -45,6 +47,7 @@ autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
   \| endif
+
 " ============================================================================ "
 " ===                           EDITING OPTIONS                            === "
 " ============================================================================ "
@@ -216,6 +219,14 @@ endfunction
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+
 " This is required to fix Error on autocmd TextYankPost error in coc
 augroup ReactFiletypes
   autocmd!
@@ -246,14 +257,6 @@ let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linen
 
 set showtabline=2
 
-
-" blamer
-let g:blamer_enabled = 0
-let g:blamer_delay = 500
-let g:blamer_date_format = '%Y/%m/%d'
-
-
 " Floaterm
-
 nnoremap <leader>gs :FloatermNew lazygit<CR>
 nnoremap <leader>t :FloatermNew<CR>
