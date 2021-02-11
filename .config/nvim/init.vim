@@ -27,7 +27,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 
 Plug 'tpope/vim-fugitive'
-Plug 'APZelos/blamer.nvim'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'vim-airline/vim-airline'
@@ -258,14 +257,6 @@ let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linen
 
 set showtabline=2
 
-
-" blamer
-let g:blamer_enabled = 0
-let g:blamer_delay = 500
-let g:blamer_date_format = '%Y/%m/%d'
-
-
 " Floaterm
-
 nnoremap <leader>gs :FloatermNew lazygit<CR>
 nnoremap <leader>t :FloatermNew<CR>
