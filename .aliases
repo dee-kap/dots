@@ -13,7 +13,7 @@ alias vim='nvim'
 alias v='nvim'
 
 # cat is a bat
-alias cato='cat'
+alias cato='/usr/bin/cat'
 alias cat='bat'
 
 # let git be g

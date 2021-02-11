@@ -38,6 +38,8 @@ Plug 'vim-airline/vim-airline-themes'
 "Plug 'peitalin/vim-jsx-typescript'
 
 Plug 'sheerun/vim-polyglot'
+"Plug 'SirVer/ultisnips'
+"Plug 'mlaursen/vim-react-snippets'
 
 call plug#end()
 
@@ -217,6 +219,14 @@ function! s:show_documentation()
 endfunction
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
 
 " This is required to fix Error on autocmd TextYankPost error in coc
 augroup ReactFiletypes
