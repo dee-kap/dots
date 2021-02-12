@@ -1,6 +1,6 @@
 //"tsserver.npm": "/home/deepak/.nvm/versions/node/v12.16.1/bin/npm"
 {
-  "codeLens.enable": true,
+  "codeLens.enable": false,
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
@@ -20,7 +20,8 @@
   "diagnostic.refreshOnInsertMode": false,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.messageTarget": "echo",
-  "diagnostic.enableSign": false,
+  "diagnostic.enableSign": true,
+  "diagnostic.enableHighlightLineNumber": true,
 
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
@@ -54,6 +55,6 @@
       ]
     }
   },
-  "git.addGBlameToVirtualText": true,
+  "git.addGBlameToVirtualText": false,
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"]
 }
