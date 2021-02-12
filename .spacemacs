@@ -33,7 +33,7 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(rust
-     markdown
+     ;; markdown
      yaml
      (elixir :variables
              elixir-backend 'alchemist
@@ -56,7 +56,6 @@ This function should only modify configuration layer settings."
                  typescript-fmt-tool-on-save t)
      prettier
      lsp
-     markdown
      multiple-cursors
      org
      (python :variables python-backend 'lsp
@@ -76,6 +75,7 @@ This function should only modify configuration layer settings."
      django
      colors
      imenu-list
+     tabs
      )
 
    ;; List of additional packages that will be installed without being
@@ -92,6 +92,7 @@ This function should only modify configuration layer settings."
                                       exec-path-from-shell
                                       monokai-theme
                                       doom-themes)
+
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -242,8 +243,8 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 12.0
+   dotspacemacs-default-font '("Fira Code"
+                               :size 11.0
                                :weight normal
                                :width normal
                                :powerline-scale 1)
@@ -516,7 +517,7 @@ before packages are loaded."
   (setq create-lockfiles nil)
   (exec-path-from-shell-initialize)
   (setq powerline-default-separator 'nil)
-  (setq default-text-properties '(line-spacing 0.25 line-height 1.10))
+  (setq default-text-properties '(line-spacing 0.15 line-height 1))
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
   (add-hook 'js2-mode-hook 'prettier-js-mode)
   (add-hook 'web-mode-hook 'prettier-js-mode)
