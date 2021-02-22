@@ -32,7 +32,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(rust
+   '(haskell
+     rust
      ;; markdown
      yaml
      (elixir :variables
@@ -76,6 +77,7 @@ This function should only modify configuration layer settings."
      colors
      imenu-list
      tabs
+     haskell
      )
 
    ;; List of additional packages that will be installed without being
@@ -224,6 +226,7 @@ It should only modify the values of Spacemacs settings."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
                          doom-palenight
+                         doom-Iosvkem
                          )
 
    powerline-default-separator 'nil
@@ -529,7 +532,7 @@ before packages are loaded."
   ;; (setq lsp-eldoc-render-all t)
   ;; (setq company-idle-delay 0.1)
   (setq company-dabbrev-downcase 0)
-  (setq company-idle-delay 0.1)
+  (setq-default company-idle-delay 0.1)
   (spaceline-define-segment buffer-id
     (if (buffer-file-name)
         (abbreviate-file-name (buffer-file-name))
