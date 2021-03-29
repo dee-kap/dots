@@ -9,8 +9,11 @@ alias ll='ls -la --icons'
 alias l='ls -l --icons'
 
 # vim. I use newovim
-alias vim='nvim'
-alias v='nvim'
+#alias vim='nvim'
+#alias v='nvim'
+alias vn='~/Downloads/nvim.appimage'
+alias vim='vn'
+alias v='vn'
 
 # cat is a bat
 alias cato='/usr/bin/cat'

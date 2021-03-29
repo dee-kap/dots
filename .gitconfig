@@ -13,3 +13,6 @@
 	ll      = log --pretty=better-oneline --numstat
   branches = branch -a
   unstage = reset HEAD
+
+[http "https://stash.optusnet.com.au"]
+  proxy = deepak.kapoor@localhost:3129

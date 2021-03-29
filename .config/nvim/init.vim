@@ -14,20 +14,28 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'voldikss/vim-floaterm'
 
 Plug 'kaicataldo/material.vim', {'branch': 'main'}
+Plug 'sainnhe/gruvbox-material'
 Plug 'cormacrelf/vim-colors-github'
+Plug 'mhartington/oceanic-next'
+Plug 'chriskempson/base16-vim'
+Plug 'miyakogi/conoline.vim'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ryanoasis/vim-devicons'
+"Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'preservim/nerdcommenter'
 Plug 'vwxyutarooo/nerdtree-devicons-syntax'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -36,10 +44,22 @@ Plug 'vim-airline/vim-airline-themes'
 "Plug 'leafgarland/typescript-vim'
 "Plug 'peitalin/vim-jsx-typescript'
 
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
 Plug 'sheerun/vim-polyglot'
 "Plug 'SirVer/ultisnips'
 "Plug 'mlaursen/vim-react-snippets'
 
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+" for testing
+Plug 'janko-m/vim-test'
+Plug 'kassio/neoterm'
+
+" rails related plugins
+Plug 'tpope/vim-rails'
 call plug#end()
 
 " Automatically install missing plugins on startup
@@ -65,6 +85,9 @@ imap jk <Esc>
 
 " enable line numbers
 set nu
+" also set relative line numbers
+" nu and rnu together will turn on hybrid line numbers
+set rnu
 
 " Don't show last command
 "set noshowcmd
@@ -120,6 +143,9 @@ nnoremap <leader>w <C-w>
 " save buffer
 nnoremap <leader>fs :w<cr>
 
+" search buffers by name
+nnoremap <leader>bb :Buffers<cr>
+
 " use clipboard as default register. This will allow yanking and pasting into
 " another application
 if system('uname -s') == "Darwin\n"
@@ -143,16 +169,19 @@ let g:onedark_terminal_italics=1
 let g:onedark_termcolors=256
 
 syntax on
-"colorscheme onedark
 if (has('nvim'))
   let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 endif
 
-let g:material_theme_style = 'palenight'
-"let g:material_theme_style = 'ocean'
-let g:material_terminal_italics = 1
+"let g:material_theme_style = 'palenight'
+"let g:material_terminal_italics = 1
 
-colorscheme material
+let g:gruvbox_material_palette = 'mix'
+let g:gruvbox_material_enable_italic = 1
+
+colorscheme base16-onedark
+
+"colorscheme material
 if (has("termguicolors"))
     set t_8f=\[[38;2;%lu;%lu;%lum
     set t_8b=\[[48;2;%lu;%lu;%lum
@@ -164,9 +193,9 @@ endif
 
 " FZF
 "nnoremap <leader><SPACE> :GFiles<CR>
-nnoremap <leader><SPACE> :GFiles<CR>
-nnoremap <leader>pf :GFiles<CR>
-nnoremap <leader>ff :Files<CR>
+"nnoremap <leader><SPACE> :GFiles<CR>
+"nnoremap <leader>pf :GFiles<CR>
+"nnoremap <leader>ff :Files<CR>
 
 " coc
 " GoTo code navigation.
@@ -239,12 +268,13 @@ let g:NERDTreeShowHidden=1
 nmap <leader>nt :NERDTreeToggle<CR>
 nmap <leader>ntf :NERDTreeFind<CR>
 
-
 " airline
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 set ttimeoutlen=50
-let g:airline_theme = 'material'
+let g:airline_theme = 'onedark'
+"let g:airline_theme = 'gruvbox_material'
+"let g:airline_theme = 'material'
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
@@ -260,3 +290,51 @@ set showtabline=2
 " Floaterm
 nnoremap <leader>gs :FloatermNew lazygit<CR>
 nnoremap <leader>t :FloatermNew<CR>
+
+" highlight current line
+let g:conoline_auto_enable = 1
+
+" telescope
+nnoremap <leader><SPACE> <cmd>Telescope find_files<cr>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>ss <cmd>Telescope live_grep<cr>
+nnoremap <leader>bb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" testing with neoterm
+" https://gist.github.com/adamzaninovich/5b9c7544cb0f5e746f75
+map <silent> <leader>t :TestNearest<CR>
+map <silent> <leader>f :TestFile<CR>
+map <silent> <leader>T :TestSuite<CR>
+map <silent> <leader>r :TestLast<CR>
+map <silent> <leader>g :TestVisit<CR>
+
+if has("nvim")
+  " change cursor to bar in insert mode
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+  " run tests with :T
+  let test#strategy = "neoterm"
+
+  " vertical split instead of the default horizontal
+  "let g:neoterm_position = "vertical"
+  let g:neoterm_default_mod = 'botright'
+
+  " pretty much essential: by default in terminal mode, you have to press ctrl-\-n to get into normal mode
+  " ain't nobody got time for that
+  tnoremap <Esc> <C-\><C-n>
+
+  " optional: make it easier to switch between terminal splits
+  " ctrl doesn't work for some reason so I use alt
+  " I think the terminal is capturing ctrl and not bubbling to vim or something
+  tnoremap <A-h> <C-\><C-n><C-w>h
+  tnoremap <A-j> <C-\><C-n><C-w>j
+  tnoremap <A-k> <C-\><C-n><C-w>k
+  tnoremap <A-l> <C-\><C-n><C-w>l
+
+  " totally optional: mirror the alt split switching in non-terminal splits
+  nnoremap <A-h> <C-w>h
+  nnoremap <A-j> <C-w>j
+  nnoremap <A-k> <C-w>k
+  nnoremap <A-l> <C-w>l
+endif

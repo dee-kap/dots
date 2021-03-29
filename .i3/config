@@ -30,8 +30,8 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec terminal
-#bindsym $mod+Return exec alacritty
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
+#bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -326,7 +326,7 @@ set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-        i3bar_command i3bar
+        #i3bar_command i3bar
         #font xft:Ubuntu Mono derivative Powerline 11
         #font pango:Roboto Mono for Powerline, FontAwesome 11
         font pango:DejaVu Sans Mono, FontAwesome 10
@@ -338,7 +338,7 @@ bar {
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
 #	tray_output eDP1
-        tray_output DisplayPort-4
+        tray_output HDMI-A-2
 
 
 	bindsym button4 nop
@@ -452,4 +452,3 @@ exec --no-startup-id dropbox start
 #exec_always compton --config ~/.config/compton.conf
 # start polybar
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-

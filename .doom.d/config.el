@@ -84,8 +84,8 @@
                                           ))
 
 (setq company-dabbrev-downcase 0)
-(setq company-idle-delay 0)
-(setq company-minimum-prefix-length 0)
+(setq company-idle-delay 0.1)
+(setq company-minimum-prefix-length 1)
 (setq company-selection-wrap-around t)
 
 (setq treemacs-git-mode 'extended)
