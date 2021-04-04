@@ -50,9 +50,9 @@ Plug 'sheerun/vim-polyglot'
 "Plug 'SirVer/ultisnips'
 "Plug 'mlaursen/vim-react-snippets'
 
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+"Plug 'nvim-lua/popup.nvim'
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'nvim-telescope/telescope.nvim'
 
 " for testing
 Plug 'janko-m/vim-test'
@@ -192,10 +192,10 @@ endif
 
 
 " FZF
-"nnoremap <leader><SPACE> :GFiles<CR>
-"nnoremap <leader><SPACE> :GFiles<CR>
-"nnoremap <leader>pf :GFiles<CR>
-"nnoremap <leader>ff :Files<CR>
+nnoremap <leader><SPACE> :GFiles<CR>
+nnoremap <leader><SPACE> :GFiles<CR>
+nnoremap <leader>pf :GFiles<CR>
+nnoremap <leader>ff :Files<CR>
 
 " coc
 " GoTo code navigation.
@@ -295,11 +295,11 @@ nnoremap <leader>t :FloatermNew<CR>
 let g:conoline_auto_enable = 1
 
 " telescope
-nnoremap <leader><SPACE> <cmd>Telescope find_files<cr>
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>ss <cmd>Telescope live_grep<cr>
-nnoremap <leader>bb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+"nnoremap <leader><SPACE> <cmd>Telescope find_files<cr>
+"nnoremap <leader>ff <cmd>Telescope find_files<cr>
+"nnoremap <leader>ss <cmd>Telescope live_grep<cr>
+"nnoremap <leader>bb <cmd>Telescope buffers<cr>
+"nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " testing with neoterm
 " https://gist.github.com/adamzaninovich/5b9c7544cb0f5e746f75
