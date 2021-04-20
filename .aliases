@@ -24,3 +24,5 @@ alias g='git'
 
 # finally I exit with e
 alias e='exit'
+
+alias python='python3'

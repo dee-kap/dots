@@ -11,15 +11,19 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
+
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+
 Plug 'voldikss/vim-floaterm'
 
 Plug 'kaicataldo/material.vim', {'branch': 'main'}
-Plug 'sainnhe/gruvbox-material'
-Plug 'cormacrelf/vim-colors-github'
-Plug 'mhartington/oceanic-next'
 Plug 'chriskempson/base16-vim'
 Plug 'miyakogi/conoline.vim'
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
+Plug 'sainnhe/edge'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -111,6 +115,9 @@ set shiftwidth=2
 " do not wrap long lines by default
 set nowrap
 
+" indent based folding
+"set foldmethod=syntax
+
 " Don't highlight current cursor line
 "set nocursorline
 
@@ -144,7 +151,7 @@ nnoremap <leader>w <C-w>
 nnoremap <leader>fs :w<cr>
 
 " search buffers by name
-nnoremap <leader>bb :Buffers<cr>
+"nnoremap <leader>bb :Buffers<cr>
 
 " use clipboard as default register. This will allow yanking and pasting into
 " another application
@@ -176,12 +183,9 @@ endif
 "let g:material_theme_style = 'palenight'
 "let g:material_terminal_italics = 1
 
-let g:gruvbox_material_palette = 'mix'
-let g:gruvbox_material_enable_italic = 1
+"let g:gruvbox_material_palette = 'mix'
+"let g:gruvbox_material_enable_italic = 1
 
-colorscheme base16-onedark
-
-"colorscheme material
 if (has("termguicolors"))
     set t_8f=\[[38;2;%lu;%lu;%lum
     set t_8b=\[[48;2;%lu;%lu;%lum
@@ -190,12 +194,27 @@ if (has("termguicolors"))
     hi! Normal ctermbg=NONE guibg=NONE
 endif
 
+let g:edge_style = 'aura'
+let g:edge_enable_italic = 1
+let g:edge_disable_italic_comment = 1
+
+"colorscheme onedark
+colorscheme edge
+"colorscheme base16-onedark
+"colorscheme material
 
 " FZF
-nnoremap <leader><SPACE> :GFiles<CR>
-nnoremap <leader><SPACE> :GFiles<CR>
-nnoremap <leader>pf :GFiles<CR>
-nnoremap <leader>ff :Files<CR>
+"nnoremap <leader><SPACE> :GFiles<CR>
+"nnoremap <leader><SPACE> :GFiles<CR>
+"nnoremap <leader>pf :GFiles<CR>
+"nnoremap <leader>ff :Files<CR>
+
+" Telescope
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader><leader> <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>bb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " coc
 " GoTo code navigation.
@@ -264,9 +283,14 @@ augroup ReactFiletypes
 augroup END
 
 " nerdtree
-let g:NERDTreeShowHidden=1
-nmap <leader>nt :NERDTreeToggle<CR>
-nmap <leader>ntf :NERDTreeFind<CR>
+"let g:NERDTreeShowHidden=1
+"nmap <leader>nt :NERDTreeToggle<CR>
+"nmap <leader>ntf :NERDTreeFind<CR>
+
+" vim-tree
+nmap <leader>e :NvimTreeToggle<CR>
+nmap <leader>ef :NvimTreeFindFile<CR>
+let g:nvim_tree_indent_markers = 1
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
@@ -293,13 +317,6 @@ nnoremap <leader>t :FloatermNew<CR>
 
 " highlight current line
 let g:conoline_auto_enable = 1
-
-" telescope
-"nnoremap <leader><SPACE> <cmd>Telescope find_files<cr>
-"nnoremap <leader>ff <cmd>Telescope find_files<cr>
-"nnoremap <leader>ss <cmd>Telescope live_grep<cr>
-"nnoremap <leader>bb <cmd>Telescope buffers<cr>
-"nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " testing with neoterm
 " https://gist.github.com/adamzaninovich/5b9c7544cb0f5e746f75
@@ -338,3 +355,4 @@ if has("nvim")
   nnoremap <A-k> <C-w>k
   nnoremap <A-l> <C-w>l
 endif
+

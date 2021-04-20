@@ -4,6 +4,9 @@
   "signature.target": "echo",
   "coc.preferences.hoverTarget":"echo",
   "codeLens.enable": false,
+  "coc.preferences.promptInput": true,
+  "coc.preferences.colorSupport": true,
+  "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
