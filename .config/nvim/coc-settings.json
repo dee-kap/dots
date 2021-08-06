@@ -1,6 +1,12 @@
 //"tsserver.npm": "/home/deepak/.nvm/versions/node/v12.16.1/bin/npm"
 {
+  "suggest.floatEnable":true,
+  "signature.target": "echo",
+  "coc.preferences.hoverTarget":"echo",
   "codeLens.enable": false,
+  "coc.preferences.promptInput": true,
+  "coc.preferences.colorSupport": true,
+  "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
@@ -56,5 +62,7 @@
     }
   },
   "git.addGBlameToVirtualText": false,
-  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"]
+  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"],
+  "solargraph.autoformat": true,
+  "solargraph.formatting": true
 }

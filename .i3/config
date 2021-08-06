@@ -30,8 +30,8 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec terminal
-#bindsym $mod+Return exec alacritty
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
+#bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -146,9 +146,9 @@ bindsym $mod+Ctrl+Left workspace prev
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
 set $ws1 "1:Battle Station"
-set $ws2 "2:Terminals"
-set $ws3 "3:Comms"
-set $ws4 "4:Engineering"
+set $ws2 "2:Comms"
+set $ws3 "3:Engineering"
+set $ws4 "4:Misc"
 set $ws5 5
 set $ws6 6
 set $ws7 7
@@ -326,7 +326,7 @@ set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-        i3bar_command i3bar
+        #i3bar_command i3bar
         #font xft:Ubuntu Mono derivative Powerline 11
         #font pango:Roboto Mono for Powerline, FontAwesome 11
         font pango:DejaVu Sans Mono, FontAwesome 10
@@ -338,7 +338,7 @@ bar {
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
 #	tray_output eDP1
-        tray_output DisplayPort-4
+        tray_output HDMI-A-2
 
 
 	bindsym button4 nop
@@ -441,6 +441,7 @@ for_window [class="^.*"] border pixel 3
 #bindsym $mod+x exec --no-startup-id rofi -show run -lines 10 -eh 2 -width 30 -padding 800 -font "Cantarell 11"
 #bindsym $mod+d exec rofi -show run -lines 20 -eh 1.3 -opacity "85" -bw 0 -icon-theme "Papirus" -show-icons
 bindsym $mod+d exec rofi window -show run -icon-theme "Papirus" -show-icons
+#bindsym $mod+d exec rofi window -show run -icon-theme "monospace" -show-icons
 
 # set wallpaper
 exec_always --no-startup-id feh --bg-scale ~/Pictures/borgship.jpeg
@@ -452,4 +453,3 @@ exec --no-startup-id dropbox start
 #exec_always compton --config ~/.config/compton.conf
 # start polybar
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-

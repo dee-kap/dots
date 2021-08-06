@@ -13,3 +13,7 @@
 	ll      = log --pretty=better-oneline --numstat
   branches = branch -a
   unstage = reset HEAD
+  caa = commit -a --amend -C HEAD # ammend the last commit with whatever changes I have
+
+[http "https://stash.optusnet.com.au"]
+  proxy = deepak.kapoor@localhost:3129

@@ -12,15 +12,28 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
+
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+
 Plug 'voldikss/vim-floaterm'
 
 Plug 'kaicataldo/material.vim', {'branch': 'main'}
+<<<<<<< HEAD
 Plug 'sainnhe/gruvbox-material'
 "Plug 'cormacrelf/vim-colors-github'
 Plug 'mhartington/oceanic-next'
 Plug 'chriskempson/base16-vim'
 Plug 'miyakogi/conoline.vim'
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
+=======
+Plug 'chriskempson/base16-vim'
+Plug 'miyakogi/conoline.vim'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
+Plug 'sainnhe/edge'
+>>>>>>> 1984d9fa1770fb29dfba034462a1e90e8e701eaa
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -37,15 +50,25 @@ Plug 'kyazdani42/nvim-tree.lua'
 "Plug 'tpope/vim-fugitive'
 "Plug 'airblade/vim-gitgutter'
 
+<<<<<<< HEAD
 Plug 'hoob3rt/lualine.nvim'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
+=======
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+>>>>>>> 1984d9fa1770fb29dfba034462a1e90e8e701eaa
 
 "Plug 'pangloss/vim-javascript'
 "Plug 'leafgarland/typescript-vim'
 "Plug 'peitalin/vim-jsx-typescript'
 
 "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1984d9fa1770fb29dfba034462a1e90e8e701eaa
 Plug 'sheerun/vim-polyglot'
 "Plug 'SirVer/ultisnips'
 "Plug 'mlaursen/vim-react-snippets'
@@ -60,6 +83,7 @@ Plug 'kassio/neoterm'
 
 " rails related plugins
 Plug 'tpope/vim-rails'
+<<<<<<< HEAD
 
 " lua
 Plug 'norcalli/nvim-colorizer.lua'
@@ -71,6 +95,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'andymass/vim-matchup'
 
+=======
+>>>>>>> 1984d9fa1770fb29dfba034462a1e90e8e701eaa
 call plug#end()
 
 " Automatically install missing plugins on startup
@@ -122,6 +148,9 @@ set shiftwidth=2
 " do not wrap long lines by default
 set nowrap
 
+" indent based folding
+"set foldmethod=syntax
+
 " Don't highlight current cursor line
 "set nocursorline
 
@@ -155,7 +184,11 @@ nnoremap <leader>w <C-w>
 nnoremap <leader>fs :w<cr>
 
 " search buffers by name
+<<<<<<< HEAD
 nnoremap <leader>bb :Buffers<cr>
+=======
+"nnoremap <leader>bb :Buffers<cr>
+>>>>>>> 1984d9fa1770fb29dfba034462a1e90e8e701eaa
 
 " use clipboard as default register. This will allow yanking and pasting into
 " another application
@@ -187,12 +220,18 @@ endif
 "let g:material_theme_style = 'palenight'
 "let g:material_terminal_italics = 1
 
+<<<<<<< HEAD
 let g:gruvbox_material_palette = 'mix'
 let g:gruvbox_material_enable_italic = 1
 
 colorscheme base16-onedark
 
 "colorscheme material
+=======
+"let g:gruvbox_material_palette = 'mix'
+"let g:gruvbox_material_enable_italic = 1
+
+>>>>>>> 1984d9fa1770fb29dfba034462a1e90e8e701eaa
 if (has("termguicolors"))
     set t_8f=\[[38;2;%lu;%lu;%lum
     set t_8b=\[[48;2;%lu;%lu;%lum
@@ -201,12 +240,30 @@ if (has("termguicolors"))
     hi! Normal ctermbg=NONE guibg=NONE
 endif
 
+let g:edge_style = 'aura'
+let g:edge_enable_italic = 1
+let g:edge_disable_italic_comment = 1
+
+"colorscheme onedark
+colorscheme edge
+"colorscheme base16-onedark
+"colorscheme material
 
 " FZF
 "nnoremap <leader><SPACE> :GFiles<CR>
 "nnoremap <leader><SPACE> :GFiles<CR>
 "nnoremap <leader>pf :GFiles<CR>
 "nnoremap <leader>ff :Files<CR>
+<<<<<<< HEAD
+=======
+
+" Telescope
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader><leader> <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>bb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+>>>>>>> 1984d9fa1770fb29dfba034462a1e90e8e701eaa
 
 " coc
 " GoTo code navigation.
@@ -275,10 +332,11 @@ augroup ReactFiletypes
 augroup END
 
 " nerdtree
-let g:NERDTreeShowHidden=1
-nmap <leader>nt :NERDTreeToggle<CR>
-nmap <leader>ntf :NERDTreeFind<CR>
+"let g:NERDTreeShowHidden=1
+"nmap <leader>nt :NERDTreeToggle<CR>
+"nmap <leader>ntf :NERDTreeFind<CR>
 
+<<<<<<< HEAD
 " airline
 "let g:airline#extensions#tabline#enabled = 1
 "set laststatus=2
@@ -293,6 +351,29 @@ nmap <leader>ntf :NERDTreeFind<CR>
 "let g:airline_left_sep = ''
 "let g:airline_right_sep = ''
 "let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
+=======
+" vim-tree
+nmap <leader>e :NvimTreeToggle<CR>
+nmap <leader>ef :NvimTreeFindFile<CR>
+let g:nvim_tree_indent_markers = 1
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
+set ttimeoutlen=50
+let g:airline_theme = 'onedark'
+"let g:airline_theme = 'gruvbox_material'
+"let g:airline_theme = 'material'
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
+>>>>>>> 1984d9fa1770fb29dfba034462a1e90e8e701eaa
 
 set showtabline=2
 
@@ -303,6 +384,7 @@ nnoremap <leader>t :FloatermNew<CR>
 " highlight current line
 let g:conoline_auto_enable = 1
 
+<<<<<<< HEAD
 " telescope
 "nnoremap <leader><SPACE> <cmd>Telescope find_files<cr>
 "nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -310,6 +392,8 @@ let g:conoline_auto_enable = 1
 "nnoremap <leader>bb <cmd>Telescope buffers<cr>
 "nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+=======
+>>>>>>> 1984d9fa1770fb29dfba034462a1e90e8e701eaa
 " testing with neoterm
 " https://gist.github.com/adamzaninovich/5b9c7544cb0f5e746f75
 map <silent> <leader>t :TestNearest<CR>
@@ -348,6 +432,7 @@ if has("nvim")
   nnoremap <A-l> <C-w>l
 endif
 
+<<<<<<< HEAD
 
 " lua
 lua require'colorizer'.setup()
@@ -357,3 +442,5 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+=======
+>>>>>>> 1984d9fa1770fb29dfba034462a1e90e8e701eaa
