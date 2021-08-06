@@ -20,7 +20,13 @@ alias cat='bat'
 alias g='git'
 
 # ripgrep is better than grep
-grep='rg'
+alias grep='rg'
+
+# top htop
+alias top='btm'
+alias htop='btm'
+
+alias time='hyperfine'
 
 # finally I exit with e
 alias e='exit'
