@@ -1,4 +1,4 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator
+# Confaguration for Alacritty, the GPU enhanced terminal emulator
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -63,34 +63,35 @@ antialias: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: FiraCode Nerd Font Mono # should be "Menlo" or something on macOS.
+    family: FiraCode Nerd Font # should be "Menlo" or something on macOS.
     #family: Fira Code # should be "Menlo" or something on macOS.
     #family: Source Code Pro # should be "Menlo" or something on macOS.
     # family: Iosevka # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
-    #style: Medium
+    style: Medium
 
   # The bold font face
   bold:
-    family: FiraCode Nerd Font Mono # should be "Menlo" or something on macOS.
+    family: FiraCode Nerd Font # should be "Menlo" or something on macOS.
     #family: Fira Code # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     style: Bold
 
   # The italic font face
   italic:
-    family: Source Code Pro # should be "Menlo" or something on macOS.
+    family: FiraCode Nerd Font # should be "Menlo" or something on macOS.
+    #family: Source Code Pro # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     style: Italic
 
   # Point size of the font
-  size: 10.5
+  size: 14
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
     x: 0
-    y: 4
+    y: 5
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increase the x offset to move the glyph to
@@ -102,7 +103,7 @@ font:
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
   # false.
-  use_thin_strokes: false
+  use_thin_strokes: true
   ### Edge (Dark Aura variant)
   edge_dark_aura: &edge_dark_aura
     primary:
@@ -128,11 +129,61 @@ font:
       magenta: "0xd38aea"
       cyan: "0x5dbbc1"
       white: "0xc5cdd9"
+
+  nord: &nord
+    primary:
+      background: '#2e3440'
+      foreground: '#d8dee9'
+      dim_foreground: '#a5abb6'
+    cursor:
+      text: '#2e3440'
+      cursor: '#d8dee9'
+    vi_mode_cursor:
+      text: '#2e3440'
+      cursor: '#d8dee9'
+    selection:
+      text: CellForeground
+      background: '#4c566a'
+    search:
+      matches:
+        foreground: CellBackground
+        background: '#88c0d0'
+      bar:
+        background: '#434c5e'
+        foreground: '#d8dee9'
+    normal:
+      black: '#3b4252'
+      red: '#bf616a'
+      green: '#a3be8c'
+      yellow: '#ebcb8b'
+      blue: '#81a1c1'
+      magenta: '#b48ead'
+      cyan: '#88c0d0'
+      white: '#e5e9f0'
+    bright:
+      black: '#4c566a'
+      red: '#bf616a'
+      green: '#a3be8c'
+      yellow: '#ebcb8b'
+      blue: '#81a1c1'
+      magenta: '#b48ead'
+      cyan: '#8fbcbb'
+      white: '#eceff4'
+    dim:
+      black: '#373e4d'
+      red: '#94545d'
+      green: '#809575'
+      yellow: '#b29e75'
+      blue: '#68809a'
+      magenta: '#8c738c'
+      cyan: '#6d96a5'
+      white: '#aeb3bb'
 # Should display the render timer
 #render_timer: false
 # Colors (Doom One)
 colors:
-  *edge_dark_aura
+  *nord
+  # *edge_dark_aura
   # Default colors
   #primary:
   #background: "0x282c34"
