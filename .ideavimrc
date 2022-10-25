@@ -1,0 +1,9 @@
+imap jk <Esc>
+
+let mapleader = " "
+
+set relativenumber number
+set hls
+
+nmap / :action Find<CR>
+nmap n :action FindNext<CR>

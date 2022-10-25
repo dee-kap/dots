@@ -12,11 +12,26 @@ alias vim='nvim'
 alias v='nvim'
 
 # cat is a bat
-alias cato='/usr/bin/cat'
-alias cat='bat'
+# alias cato='/usr/bin/cat'
+# alias cat='bat'
 
 # let git be g
 alias g='git'
+alias gpom='git pull origin master'
+alias gmo='git merge origin'
+alias gc='git checkout'
+alias gs='git status'
+alias gcm='git commit -m'
+alias ga='git add'
+alias gb='git branch'
+alias gf='git fetch'
+alias gp='git pull'
+alias gr='git restore'
+alias push='git push origin'
+alias pull='git pull origin'
+alias stash='git stash'
+alias sapply='git stash apply'
+alias gl='g log --oneline --pretty --name-only'
 
 # ripgrep is better than grep
 alias grep='rg'
@@ -31,3 +46,7 @@ alias time='hyperfine'
 alias e='exit'
 
 alias python='python3'
+alias pip='pip3'
+
+# start emacs client
+alias em="emacsclient -c -n -a ''"

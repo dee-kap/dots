@@ -63,42 +63,42 @@ antialias: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: FiraCode Nerd Font # should be "Menlo" or something on macOS.
+    family: SauceCodePro Nerd Font # should be "Menlo" or something on macOS.
+    # family: FiraCode Nerd Font # should be "Menlo" or something on macOS.
     #family: Fira Code # should be "Menlo" or something on macOS.
     #family: Source Code Pro # should be "Menlo" or something on macOS.
     # family: Iosevka # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
-    style: Medium
+    # style: Normal
 
   # The bold font face
   bold:
-    family: FiraCode Nerd Font # should be "Menlo" or something on macOS.
+    family: SauceCodePro Nerd Font Bold # should be "Menlo" or something on macOS.
     #family: Fira Code # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     style: Bold
 
-  # The italic font face
-  italic:
-    family: FiraCode Nerd Font # should be "Menlo" or something on macOS.
+  # The italic font face italic:
+    family: SauceCodePro Nerd Font # should be "Menlo" or something on macOS.
     #family: Source Code Pro # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     style: Italic
 
   # Point size of the font
-  size: 14
+  size: 15
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
     x: 0
-    y: 5
+    y: 15
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increase the x offset to move the glyph to
   # the right, increase the y offset to move the glyph upward.
   glyph_offset:
     x: 0
-    y: 0
+    y: 8
 
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
@@ -132,57 +132,80 @@ font:
 
   nord: &nord
     primary:
-      background: '#2e3440'
-      foreground: '#d8dee9'
-      dim_foreground: '#a5abb6'
+      background: "#2e3440"
+      foreground: "#d8dee9"
+      dim_foreground: "#a5abb6"
     cursor:
-      text: '#2e3440'
-      cursor: '#d8dee9'
+      text: "#2e3440"
+      cursor: "#d8dee9"
     vi_mode_cursor:
-      text: '#2e3440'
-      cursor: '#d8dee9'
+      text: "#2e3440"
+      cursor: "#d8dee9"
     selection:
       text: CellForeground
-      background: '#4c566a'
+      background: "#4c566a"
     search:
       matches:
         foreground: CellBackground
-        background: '#88c0d0'
+        background: "#88c0d0"
       bar:
-        background: '#434c5e'
-        foreground: '#d8dee9'
+        background: "#434c5e"
+        foreground: "#d8dee9"
     normal:
-      black: '#3b4252'
-      red: '#bf616a'
-      green: '#a3be8c'
-      yellow: '#ebcb8b'
-      blue: '#81a1c1'
-      magenta: '#b48ead'
-      cyan: '#88c0d0'
-      white: '#e5e9f0'
+      black: "#3b4252"
+      red: "#bf616a"
+      green: "#a3be8c"
+      yellow: "#ebcb8b"
+      blue: "#81a1c1"
+      magenta: "#b48ead"
+      cyan: "#88c0d0"
+      white: "#e5e9f0"
     bright:
-      black: '#4c566a'
-      red: '#bf616a'
-      green: '#a3be8c'
-      yellow: '#ebcb8b'
-      blue: '#81a1c1'
-      magenta: '#b48ead'
-      cyan: '#8fbcbb'
-      white: '#eceff4'
+      black: "#4c566a"
+      red: "#bf616a"
+      green: "#a3be8c"
+      yellow: "#ebcb8b"
+      blue: "#81a1c1"
+      magenta: "#b48ead"
+      cyan: "#8fbcbb"
+      white: "#eceff4"
     dim:
-      black: '#373e4d'
-      red: '#94545d'
-      green: '#809575'
-      yellow: '#b29e75'
-      blue: '#68809a'
-      magenta: '#8c738c'
-      cyan: '#6d96a5'
-      white: '#aeb3bb'
+      black: "#373e4d"
+      red: "#94545d"
+      green: "#809575"
+      yellow: "#b29e75"
+      blue: "#68809a"
+      magenta: "#8c738c"
+      cyan: "#6d96a5"
+      white: "#aeb3bb"
+  gruvbox_material_soft_dark: &gruvbox_material_soft_dark
+    primary:
+      background: '0x32302f'
+      foreground: '0xd4be98'
+    normal:
+      black:   '0x45403d'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xd8a657'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xd4be98'
+    bright:
+      black:   '0x45403d'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xd8a657'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xd4be98'
 # Should display the render timer
 #render_timer: false
 # Colors (Doom One)
 colors:
-  *nord
+  *gruvbox_material_soft_dark
+  # *nord
   # *edge_dark_aura
   # Default colors
   #primary:
@@ -323,7 +346,7 @@ bell:
   duration: 0
 
 # Background opacity
-background_opacity: 1
+# background_opacity: 1
 
 # Mouse bindings
 #
